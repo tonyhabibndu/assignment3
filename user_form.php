@@ -45,7 +45,7 @@ $user = findUser($_GET["id"]);
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $user = ["firstName" => $_POST["firstname"], "lastName" => $_POST["lastname"]];
+    $user = ["firstName" => htmlspecialchars($_POST["firstname"]), "lastName" => htmlspecialchars($_POST["lastname"])];
     if (isset($_GET["id"])) {
         updateUser($_GET["id"], $user);
     } else {
