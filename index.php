@@ -14,7 +14,7 @@ function dump($el) {
 </head>
 <body>
 <?php
-//dump($_SESSION["users"]);
+dump($_SESSION["users"]);
 if (isset($_SESSION["users"])){
     print "<table>
     <tr>
@@ -25,11 +25,12 @@ if (isset($_SESSION["users"])){
     foreach($_SESSION["users"] as $user)
     {
         print "<tr>";
-        foreach ($user as $col){
+        foreach ($user as $key => $col){
+            if ($key == "id") continue;
             print "<td>{$col}</td>";
         }
         print "<td>";
-        print "<a href='./user_form.php'>Edit</a>";
+        print "<a href='./user_form.php?id={$user["id"]}'>Edit</a>";
         print "</td>";
 
         print "</tr>";
