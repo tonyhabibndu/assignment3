@@ -1,11 +1,4 @@
 <?php session_start(); ?>
-<?php
-function dump($el) {
-    print "<pre>";
-    print_r($el);
-    print "</pre>";
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +7,6 @@ function dump($el) {
 </head>
 <body>
 <?php
-dump($_SESSION["users"]);
 if (isset($_SESSION["users"])){
     print "<table>
     <tr>
