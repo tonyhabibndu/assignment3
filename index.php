@@ -1,4 +1,11 @@
 <?php session_start(); ?>
+<?php
+function dump($el) {
+    print "<pre>";
+    print_r($el);
+    print "</pre>";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +14,13 @@
 </head>
 <body>
 <?php
+//dump($_SESSION["users"]);
 if (isset($_SESSION["users"])){
     print "<table>
     <tr>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>Actions</th>
     </tr>";
     foreach($_SESSION["users"] as $user)
     {
@@ -19,6 +28,10 @@ if (isset($_SESSION["users"])){
         foreach ($user as $col){
             print "<td>{$col}</td>";
         }
+        print "<td>";
+        print "<a href='./user_form.php'>Edit</a>";
+        print "</td>";
+
         print "</tr>";
     }
     print "</table>";
